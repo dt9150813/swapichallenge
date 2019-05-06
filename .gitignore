@@ -1,0 +1,11 @@
+__dmpcache__/
+__pycache__/
+.vscode/
+.sqlite3/
+homepage/__pycache__/*.pyc
+*.pyc
+account/__pycache__/*.pyc
+mysite/__pycache__/*.pyc
+*.zip
+*.md
+*.pdf

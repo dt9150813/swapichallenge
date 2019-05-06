@@ -1,0 +1,47 @@
+<%inherit file="base.htm" />
+<%block name="tag">Movie List</%block>
+<%block name="content">
+    <!-- ##### Breadcumb Area Start ##### -->
+    <div class="breadcumb_area bg-img" style="background-image: url(${ STATIC_URL }homepage/media/img/bg-img/breadcumb.jpg);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="page-title text-center">
+                        <h2>Movie List</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Breadcumb Area End ##### -->
+
+    <!-- ##### Shop Grid Area Start ##### -->
+    <section class="shop_grid_area section-padding-80">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-12 col-lg-12">
+                    <table class="table table-borderless sortable">
+                            <thead>
+                                <tr>
+                                    <th class="text-center"><h4>Film Poster</h4></th>
+                                    <th class="text-center"><h4>Film Name</h4></th>
+                                    <th class="text-center"><h4>Episode #</h4></th>
+                                    <th class="text-center"><h4>Released Date</h4></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                %for film in films:
+                                <tr>
+                                    <td class="text-center"><a href="/homepage/film/${film[3]}"><img src="${film[7]}" style="max-width: 120px;"></a></td>
+                                    <td class="text-center" style="vertical-align:middle"><a href="/homepage/film/${film[3]}"><h5>${film[0]}</h5></a></td>
+                                    <td class="text-center" style="vertical-align:middle"><h5>${film[1]}</h5></td>
+                                    <td class="text-center" style="vertical-align:middle"><h5>${film[2]}</h5></td>
+                                </tr>
+                                %endfor
+                            </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</%block>

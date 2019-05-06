@@ -1,0 +1,37 @@
+<%inherit file="base.htm" />
+<%block name="tag">${title}</%block>
+<%block name="content">
+<section class="single_product_details_area d-flex align-items-center">
+
+    <!-- Single Product Thumb -->
+    <div class="single_product_thumb clearfix">
+        <div style="margin-top: 0.5px">
+            <img src="${img}">  
+        </div>  
+    </div>
+
+    <!-- Single Product Description -->
+    <div class="single_product_desc clearfix">
+        <h2>${title}</h2>
+        <p class="product-price">Episode Number: ${episode_id}</p>
+        <p class="product-desc">${opening_crawl}</p>
+        <h5>Director: ${director}</h5>
+        <h5>Producer: ${producer}</h5>
+        <h5>Release Date: ${release_date}</h5>
+        <br>
+        <a class="btn essence-btn" href="/homepage/index">Back to the List</a>
+        <nav aria-label="navigation">
+            <ul class="pagination mt-50 mb-70">
+                %if sequence_id > 1:
+                    <li class="page-item"><a class="page-link" href="/homepage/film/${sequence_id - 1}"><i class="fa fa-angle-left"></i></a></li>
+                %endif
+                %if sequence_id < 7:
+                    <li class="page-item"><a class="page-link" href="/homepage/film/${sequence_id + 1}"><i class="fa fa-angle-right"></i></a></li>
+                %endif
+            </ul>
+        </nav>
+    </div>
+</section>
+<!-- ##### Single Product Details Area End ##### -->
+</%block>
+

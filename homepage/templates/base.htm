@@ -1,0 +1,100 @@
+## this is the skeleton of all pages on in this app - it defines the basic html tags
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+
+<head>
+
+    <title>
+        SWAPI - <%block name="tag"></%block>
+    </title>
+
+    ## render the static file links with the same name as this template
+    <script src="/django_mako_plus/dmp-common.min.js"></script>
+    ${ django_mako_plus.links(self) }
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <script src="https://kryogenix.org/code/browser/sorttable/sorttable.js"></script>
+
+    <!-- jQuery library -->
+    <script src="${ STATIC_URL }homepage/scripts/jquery/jquery-2.2.4.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="${ STATIC_URL }homepage/scripts/popper.min.js"></script>
+
+    <!-- Core Style CSS -->
+    <link rel="stylesheet" href="${ STATIC_URL }homepage/styles/css/core-style.css">
+    <link rel="icon" href="${ STATIC_URL }homepage/media/star-wars-icon-vector-2.jpg">
+
+</head>
+    <body>
+        <!-- ##### Header Area Start ##### -->
+        <header class="header_area">
+            <div class="classy-nav-container breakpoint-off d-flex align-items-center justify-content-between">
+                <!-- Classy Menu -->
+                <nav class="classy-navbar" id="essenceNav">
+                    <!-- Logo -->
+                    <a class="nav-brand" href="/"><img src="${ STATIC_URL }homepage/media/star-wars-icon-vector-13.jpg" alt="" style="max-height: 50px;"></a>
+                    <!-- Navbar Toggler -->
+                    <div class="classy-navbar-toggler">
+                        <span class="navbarToggler"><span></span><span></span><span></span></span>
+                    </div>
+                    <!-- Menu -->
+                    <div class="classy-menu">
+                        <!-- close btn -->
+                        <div class="classycloseIcon">
+                            <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                        </div>
+                        <!-- Nav Start -->
+                        <div class="classynav">
+                            <ul>
+                                <li><a href="/homepage/index/">Film List</a></li>
+                                <li><a href="#">Films</a>
+                                    <ul class="dropdown">
+                                        %for film in request.session['films']:
+                                        <li><a href="/homepage/film/${film[3]}">${film[0]}</a></li>
+                                        %endfor
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Nav End -->
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <!-- ##### Header Area End ##### -->
+        <main>
+            <%block name="content"></%block>
+        </main>
+
+        <footer class="footer_area clearfix">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4 text-center">
+                        <a href="/"><img src="${ STATIC_URL }homepage/media/SWLogo.svg" alt="" style="max-height: 300px;"></a>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-md-12 text-center">
+                        <p>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+    <!-- Bootstrap js -->
+    <script src="${ STATIC_URL }homepage/scripts/bootstrap.min.js"></script>
+    <!-- Plugins js -->
+    <script src="${ STATIC_URL }homepage/scripts/plugins.js"></script>
+    <!-- Classy Nav js -->
+    <script src="${ STATIC_URL }homepage/scripts/classy-nav.min.js"></script>
+    <!-- Active js -->
+    <script src="${ STATIC_URL }homepage/scripts/active.js"></script>
+</html>
